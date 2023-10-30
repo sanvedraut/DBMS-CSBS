@@ -1,0 +1,37 @@
+-- Create the Students table
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3)
+);
+
+-- Create the Courses table
+CREATE TABLE Courses (
+    CourseID NUMBER(5) PRIMARY KEY,
+    CourseName VARCHAR2(100),
+    StudentID NUMBER(5) REFERENCES Students(StudentID)
+);
+
+-- Insert data into the Students and Courses tables
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (1, 'John', 'Doe', 20);
+    
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (2, 'Jane', 'Smith', 22);
+
+INSERT INTO Courses (CourseID, CourseName, StudentID) VALUES
+    (101, 'Mathematics', 1);
+    
+INSERT INTO Courses (CourseID, CourseName, StudentID) VALUES
+    (102, 'History', 2);
+    
+INSERT INTO Courses (CourseID, CourseName, StudentID) VALUES
+    (103, 'Science', 1);
+
+
+
+-- Perform a right outer join between Students and Courses
+SELECT Students.FirstName, Students.LastName, Courses.CourseName
+FROM Students
+RIGHT JOIN Courses ON Students.StudentID = Courses.StudentID;

@@ -1,0 +1,20 @@
+SELECT S.Name AS Salesman_Name, S.Salesman_id
+FROM SALESMAN S
+WHERE S.Salesman_id IN (
+    SELECT Salesman_id
+    FROM CUSTOMER
+    GROUP BY Salesman_id
+    HAVING COUNT(*) > 1
+);
+
+
+
+SELECT 'Salesman with Customers' AS Status, S.Name AS Salesman_Name, S.City
+FROM SALESMAN S
+WHERE S.Salesman_id IN (SELECT DISTINCT Salesman_id FROM CUSTOMER)
+
+UNION
+
+SELECT 'Salesman without Customers' AS Status, S.Name AS Salesman_Name, S.City
+FROM SALESMAN S
+WHERE S.Salesman_id NOT IN (SELECT DISTINCT Salesman_id FROM CUSTOMER);

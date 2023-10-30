@@ -1,0 +1,14 @@
+CREATE TABLE Employees (
+    EmployeeID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Email VARCHAR2(100),
+    Salary NUMBER(10, 2)
+);
+
+ALTER TABLE Employees
+ADD CONSTRAINT EmailUnique UNIQUE (Email);
+
+
+ALTER TABLE Employees
+MODIFY (Salary DEFAULT 50000);

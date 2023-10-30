@@ -1,0 +1,10 @@
+-- Create a table with a primary key constraint
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3)
+);
+
+
+

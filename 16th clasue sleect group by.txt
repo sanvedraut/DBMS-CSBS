@@ -1,0 +1,22 @@
+-- Sample "orders" table
+CREATE TABLE orders (
+    order_id NUMBER PRIMARY KEY,
+    customer_id NUMBER,
+    order_date DATE,
+    total_amount NUMBER
+);
+
+-- Insert sample data
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES (1, 101, TO_DATE('2023-10-01', 'yyyy-mm-dd'), 500);
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES (2, 102, TO_DATE('2023-10-02', 'yyyy-mm-dd'), 750);
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES (3, 101, TO_DATE('2023-10-03', 'yyyy-mm-dd'), 300);
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES (4, 103, TO_DATE('2023-10-04', 'yyyy-mm-dd'), 450);
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES (5, 102, TO_DATE('2023-10-05', 'yyyy-mm-dd'), 900);
+-- Add more records as needed
+
+-- SQL query to select and order orders
+SELECT customer_id, SUM(total_amount) AS total_order_amount
+FROM orders
+WHERE order_date BETWEEN TO_DATE('2023-10-01', 'yyyy-mm-dd') AND TO_DATE('2023-10-31', 'yyyy-mm-dd')
+GROUP BY customer_id
+ORDER BY total_order_amount DESC;

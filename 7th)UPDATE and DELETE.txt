@@ -1,0 +1,28 @@
+-- Create the Students table and insert sample data (if not already done)
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3)
+);
+
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (1, 'John', 'Doe', 20);
+    
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (2, 'Jane', 'Smith', 22);
+
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (3, 'Bob', 'Johnson', 21);
+
+-- UPDATE: Change John Doe's age to 21
+UPDATE Students
+SET Age = 21
+WHERE StudentID = 1;
+
+-- DELETE: Remove the student with StudentID 3 (Bob Johnson)
+DELETE FROM Students
+WHERE StudentID = 3;
+
+-- Display the updated data
+SELECT * FROM Students;

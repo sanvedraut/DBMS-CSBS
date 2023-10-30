@@ -1,0 +1,32 @@
+-- Create the Students table
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3)
+);
+
+-- Insert data into the Students table
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (1, 'John', 'Doe', 20);
+    
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (2, 'Jane', 'Smith', 22);
+
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (3, 'Bob', 'Johnson', 21);
+
+-- Create a view for adult students (age >= 21)
+CREATE OR REPLACE VIEW AdultStudents AS
+SELECT StudentID, FirstName, LastName, Age
+FROM Students
+WHERE Age >= 21;
+
+-- Select data from the view
+SELECT * FROM AdultStudents;
+
+-- Update data in the view (if needed)
+-- Example: UPDATE AdultStudents SET Age = 23 WHERE StudentID = 2;
+
+-- Delete data in the view (if needed)
+-- Example: DELETE FROM AdultStudents WHERE StudentID = 3;

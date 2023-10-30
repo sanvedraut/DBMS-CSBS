@@ -1,0 +1,20 @@
+CREATE VIEW SalesmanWithHighestOrder AS
+SELECT S.Salesman_id, S.Name AS Salesman_Name, O.Ord_Date, MAX(O.Purchase_Amt) AS Highest_Order
+FROM SALESMAN S
+JOIN CUSTOMER C ON S.Salesman_id = C.Salesman_id
+JOIN ORDERS O ON C.Customer_id = O.Customer_id
+GROUP BY S.Salesman_id, S.Name, O.Ord_Date;
+
+
+
+-- First, delete orders associated with the salesman (Salesman_id = 1000)
+DELETE FROM ORDERS
+WHERE Salesman_id = 1000;
+
+-- Then, delete the salesman (Salesman_id = 1000) from the CUSTOMER table
+DELETE FROM CUSTOMER
+WHERE Salesman_id = 1000;
+
+-- Finally, delete the salesman (Salesman_id = 1000) from the SALESMAN table
+DELETE FROM SALESMAN
+WHERE Salesman_id = 1000;

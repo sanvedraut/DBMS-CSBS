@@ -1,0 +1,38 @@
+Aggregate functions in SQL, including AVG, COUNT, MIN, MAX, and SUM, are used to perform calculations on sets of values within a database table. These functions summarize data and provide useful insights into the data set. Here's a brief explanation of each function:
+
+AVG: This function calculates the average value of a numeric column. It's often used to find the average of values, such as average salaries or average prices.
+
+Example:
+
+sql
+Copy code
+SELECT AVG(salary) AS average_salary FROM employees;
+COUNT: COUNT counts the number of rows in a table or the number of rows that meet a specified condition. It's useful for finding the number of records in a dataset.
+
+Example:
+
+sql
+Copy code
+SELECT COUNT(*) AS total_records FROM orders;
+MIN: MIN finds the minimum (lowest) value in a column. It's often used to find the smallest value in a dataset, such as the earliest date or the lowest price.
+
+Example:
+
+sql
+Copy code
+SELECT MIN(price) AS lowest_price FROM products;
+MAX: MAX does the opposite of MIN; it finds the maximum (highest) value in a column. It's useful for finding the largest value in a dataset, such as the latest date or the highest price.
+
+Example:
+
+sql
+Copy code
+SELECT MAX(order_date) AS latest_order_date FROM orders;
+SUM: SUM calculates the total sum of values in a numeric column. It's often used to find the total sum of quantities, amounts, or other numeric data.
+
+Example:
+
+sql
+Copy code
+SELECT SUM(quantity) AS total_quantity FROM sales;
+These aggregate functions are handy for summarizing data and deriving insights from a dataset. You can also use them in combination with other SQL clauses like GROUP BY for more complex queries.

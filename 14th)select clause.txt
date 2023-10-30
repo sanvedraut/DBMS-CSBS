@@ -1,0 +1,21 @@
+CREATE TABLE sales (
+    product_id NUMBER,
+    category VARCHAR2(50),
+    sale_amount NUMBER
+);
+
+-- Insert sample data
+INSERT INTO sales VALUES (1, 'Electronics', 500);
+INSERT INTO sales VALUES (2, 'Electronics', 750);
+INSERT INTO sales VALUES (3, 'Clothing', 300);
+INSERT INTO sales VALUES (4, 'Clothing', 450);
+INSERT INTO sales VALUES (5, 'Electronics', 900);
+INSERT INTO sales VALUES (6, 'Clothing', 600);
+
+
+SELECT category, SUM(sale_amount) AS total_sales
+FROM sales
+WHERE sale_amount >= 100 -- Filter out low sales
+GROUP BY category
+HAVING SUM(sale_amount) >= 1000 -- Filter categories with total sales >= 1000
+ORDER BY total_sales DESC;

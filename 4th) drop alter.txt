@@ -1,0 +1,52 @@
+ 4)Create and populate database and perform DROP and ALTER commands on your own considered database.
+
+
+-- Create a new tablespace (optional, for organization)
+CREATE TABLESPACE MyTablespace
+   DATAFILE 'mydatafile.dbf' SIZE 100M AUTOEXTEND ON;
+
+-- Create a table in the default tablespace or the one you created
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3)
+);
+
+-- Insert data into the table
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (1, 'John', 'Doe', 20);
+
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (2, 'Jane', 'Smith', 22);
+
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (3, 'Bob', 'Johnson', 21);
+
+-- Select all records from the table
+SELECT * FROM Students;
+
+-- Drop the table
+DROP TABLE Students;
+
+-- Recreate the table with an additional column
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3),
+    Email VARCHAR2(100)
+);
+
+-- Insert data into the table with the new column
+INSERT INTO Students (StudentID, FirstName, LastName, Age, Email) VALUES
+    (4, 'Alice', 'Brown', 19, 'alice@example.com');
+
+-- Select all records from the table with the new column
+SELECT * FROM Students;
+
+-- Drop the table
+DROP TABLE Students;
+
+-- Drop the tablespace (if created)
+DROP TABLESPACE MyTablespace INCLUDING CONTENTS AND DATAFILES;

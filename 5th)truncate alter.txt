@@ -1,0 +1,37 @@
+-- Create a table
+CREATE TABLE Students (
+    StudentID NUMBER(5) PRIMARY KEY,
+    FirstName VARCHAR2(50),
+    LastName VARCHAR2(50),
+    Age NUMBER(3)
+);
+
+-- Insert data into the Students table
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (1, 'John', 'Doe', 20);
+    
+INSERT INTO Students (StudentID, FirstName, LastName, Age) VALUES
+    (2, 'Jane', 'Smith', 22);
+
+-- Select all records from the Students table
+SELECT * FROM Students;
+
+-- Truncate (delete all rows) from the Students table
+TRUNCATE TABLE Students;
+
+-- Verify that all records are deleted
+SELECT * FROM Students;
+
+-- Add a new column 'Email' to the Students table
+ALTER TABLE Students
+ADD Email VARCHAR2(100);
+
+-- Delete the 'Email' column from the Students table
+ALTER TABLE Students
+DROP COLUMN Email;
+
+-- Verify that the 'Email' column is deleted
+SELECT * FROM Students;
+
+-- Drop the Students table
+DROP TABLE Students;
